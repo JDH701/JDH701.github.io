@@ -2,16 +2,16 @@
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
-<title>搜索</title>
+<title>搜一搜</title>
 
 <link rel='canonical' href='https://JDH701.github.io/search/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="搜索">
+<link rel="stylesheet" href="/scss/style.min.a7f637593c1d99350f36f270c9abc65cf39ec34b45847eb2fa40efef51b94c92.css"><meta property='og:title' content="搜一搜">
 <meta property='og:description' content="">
 <meta property='og:url' content='https://JDH701.github.io/search/'>
 <meta property='og:site_name' content='姜茶'>
-<meta property='og:type' content='article'><meta property='article:section' content='Page' />
-<meta name="twitter:title" content="搜索">
+<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:modified_time' content='2025-01-12T17:51:24&#43;08:00'/>
+<meta name="twitter:title" content="搜一搜">
 <meta name="twitter:description" content=""><link rel="alternate" type="application/json" href="https://JDH701.github.io/search/index.json">
     <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="preload" href="/search/index.json" as="fetch" crossorigin="anonymous">
@@ -199,7 +199,7 @@
 
 
                 
-                <span>搜索</span>
+                <span>搜一搜</span>
             </a>
         </li>
         
@@ -311,6 +311,64 @@
         document.head.appendChild(customFont);
     }());
 </script>
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
 
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            let elementsByClassName = document.querySelectorAll(".open");
+            if (elementsByClassName.length > 0) {
+                elementsByClassName.forEach((ul) => {
+                    ul.classList.remove("open")
+                })
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+<style>
+    @font-face {
+      font-family: 'SmileySans-Oblique';
+      src: url(https://JDH701.github.io/font/SmileySans-Oblique.ttf) format('truetype');
+    }
+  
+    :root {
+      --base-font-family: 'SmileySans-Oblique';
+      --code-font-family: 'SmileySans-Oblique';
+    }
+  </style>
+  
     </body>
 </html>
